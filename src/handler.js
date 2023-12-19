@@ -6,18 +6,11 @@ const imgUploader = require('../modules/imgUploader.js');
 
 
 const connection = mysql.createConnection({
-<<<<<<< HEAD
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     database: process.env.DB_DATABASE,
     password: process.env.DB_PASSWORD,
     waitForConnections: true,
-=======
-    host: '',
-    user: 'root',
-    database: 'junkcash',
-    password: ''
->>>>>>> 11bd9c3d520f1d6bfad469609f8bde6e1fe9e96d
 });
 
 const postPhoto = async (request, h) => {
