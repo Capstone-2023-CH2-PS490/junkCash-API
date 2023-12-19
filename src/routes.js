@@ -1,10 +1,16 @@
-const { addingOrder, gettingAllOrders, gettingOrderByEmail, gettingOrderById, canceledStatus, completedStatus, gettingTotalPrice} = require('./handler');
+const { postPhoto, addingOrder, gettingAllOrders, gettingOrderByEmail, gettingOrderById, canceledStatus, completedStatus, gettingTotalPrice, deleteOrder} = require('./handler');
 
 const routes = [
     {
       method: 'POST',
       path: '/orders',
       handler: addingOrder,
+    },
+
+    {
+      method: 'POST',
+      path: '/photos',
+      handler: postPhoto
     },
 
     {
@@ -41,6 +47,11 @@ const routes = [
       method: 'PUT',
       path: '/orders/{id}/canceled',
       handler: canceledStatus,
+    },
+    {
+      method: 'DELETE',
+      path: '/orders/{id}',
+      handler: deleteOrder
     }
 
 ]

@@ -1,11 +1,38 @@
+require('dotenv').config();
+
 const mysql = require('mysql');
+const Inert = require('@hapi/inert');
+const imgUploader = require('../modules/imgUploader.js');
+
 
 const connection = mysql.createConnection({
-    host: '34.101.170.176',
-    user: 'root',
-    database: 'junkcash',
-    password: ''
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    database: process.env.DB_DATABASE,
+    password: process.env.DB_PASSWORD,
+    waitForConnections: true,
 });
+
+const postPhoto = async (request, h) => {
+    try {
+        const { payload } = request;
+        const file = payload['image'];
+    
+        // Upload to GCS
+        const cloudStoragePublicUrl = await imgUploader.uploadPhotos(file);
+    
+        const data = {
+          imageUrl: cloudStoragePublicUrl,
+        };
+    
+        return h.response(data).code(200).header('Content-Type', 'application/json'); // Update Content-Type
+    
+      } catch (error) {
+        console.error("Error uploading image:", error);
+        return h.response({ message: 'Error uploading image' }).code(500);
+      }
+  }; 
+
 
 const addingOrder = async (request, h) => {
     try {
@@ -36,6 +63,10 @@ const addingOrder = async (request, h) => {
         }
 
         var imgUrl = '';
+        if (request.file && request.file.cloudStoragePublicUrl) {
+            imgUrl = request.file.cloudStoragePublicUrl;
+        }
+        
         const currentDate = new Date().toISOString();
         const date = currentDate.slice(0, 19).replace('T', ' ');
         const status = 'In Process';
@@ -211,12 +242,40 @@ const completedStatus = async (request, h) => {
     }
 }
 
+const deleteOrder = async (request, h) => {
+    const id = request.params.id;
+    try {
+        const query = "DELETE FROM orders WHERE id = ?"
+        const result = await new Promise((resolve, reject) => {
+            connection.query(query, [id], (err, rows, fields) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(rows);
+                }
+            });
+        });
+
+        // No orders found for the provided id
+        if (result.affectedRows === 0) {
+            return h.response({ message: "No orders found" }).code(404);
+        }
+
+        return h.response(result);
+    } catch (error) {
+        console.error("Error:", error);
+        return h.response({ message: "Failed to delete order status" }).code(500);
+    }
+}
+
 module.exports = {
+    postPhoto,
     addingOrder,
     gettingAllOrders,
     gettingOrderByEmail,
     gettingOrderById,
     canceledStatus,
     completedStatus,
-    gettingTotalPrice
+    gettingTotalPrice,
+    deleteOrder
 };

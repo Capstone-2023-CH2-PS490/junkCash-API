@@ -4,11 +4,11 @@ CREATE TABLE orders (
     email VARCHAR(255) NOT NULL,
     wasteType VARCHAR(100) NOT NULL,
     price INT(11) NOT NULL,
-    quantity float NOT NULL
+    quantity float NOT NULL,
     collectorLoc VARCHAR(255) NOT NULL,
     userLoc VARCHAR(255) NOT NULL,
     notes TEXT,
     attachment VARCHAR(255),
-    date VARCHAR NOT NULL,
-    status VARCHAR(20),
-)
+    date VARCHAR(30) NOT NULL,
+    status VARCHAR(20)
+);
