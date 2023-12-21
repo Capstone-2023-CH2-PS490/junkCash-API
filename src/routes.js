@@ -10,7 +10,7 @@ const routes = [
     {
       method: 'POST',
       path: '/photos',
-      handler: postPhoto
+      handler: postPhoto,
     },
 
     {

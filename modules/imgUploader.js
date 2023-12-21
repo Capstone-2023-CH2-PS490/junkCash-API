@@ -23,7 +23,7 @@ const uploadPhotos = async (file) => {
     const blob = bucket.file(gcsFileName);
     const stream = blob.createWriteStream({
         metadata: {
-            contentType: file.headers['content-type'], // Use file.headers['content-type']
+            contentType: file.headers['content-type'],
         },
     });
 
