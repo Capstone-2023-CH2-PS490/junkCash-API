@@ -26,6 +26,7 @@ const postPhoto = async (request, h) => {
           imageUrl: cloudStoragePublicUrl,
         };
     
+        return h.response(data).code(200).header('Content-Type', 'image/jpeg'); // Update Content-Type
     
       } catch (error) {
         console.error("Error uploading image:", error);
