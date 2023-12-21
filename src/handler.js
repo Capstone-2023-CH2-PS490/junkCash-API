@@ -11,7 +11,6 @@ const connection = mysql.createConnection({
     database: process.env.DB_DATABASE,
     password: process.env.DB_PASSWORD,
     waitForConnections: true,
-
 });
 
 const postPhoto = async (request, h) => {
