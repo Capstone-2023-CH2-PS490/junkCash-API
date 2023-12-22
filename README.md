@@ -19,7 +19,7 @@ Welcome to JunkCash API. JunkCash is the waste buying and selling application th
   ```
 
 
-#API
+## API
 ## Add Order
 - URL
 ```URL
