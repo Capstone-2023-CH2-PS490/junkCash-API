@@ -5,7 +5,7 @@ Welcome to JunkCash API. JunkCash is the waste buying and selling application th
 ## Setup
 - Clone repo
   ```
-  https://github.com/Capstone-2023-CH2-PS490/junkCash-API
+  git clone https://github.com/Capstone-2023-CH2-PS490/junkCash-API.git
   cd junkCash-API
   ```
 - Run the API
