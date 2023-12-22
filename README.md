@@ -2,6 +2,24 @@
 
 Welcome to JunkCash API. JunkCash is the waste buying and selling application that revolutionizes the recycling experience. This app allows users to buy and sell recyclable materials efficiently while contributing to a cleaner environment.
 
+## Setup
+- Clone repo
+  ```
+  https://github.com/Capstone-2023-CH2-PS490/junkCash-API
+  cd junkCash-API
+  ```
+- Run the API
+  ```
+  npm run start
+  ```
+
+- Deploy to Google App Engine
+  ```
+  gcloud app deploy app.yml
+  ```
+
+
+#API
 ## Add Order
 - URL
 ```URL
