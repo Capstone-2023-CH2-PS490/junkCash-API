@@ -3,20 +3,20 @@
 Welcome to JunkCash API. JunkCash is the waste buying and selling application that revolutionizes the recycling experience. This app allows users to buy and sell recyclable materials efficiently while contributing to a cleaner environment.
 
 ## Add Order
-#### URL
+- URL
 ```URL
 /orders
 ```
-#### Method
+- Method
 ```
 POST
 ```
-#### Data Params
+- Data Params
 ```
 username, email, wasteType, quantity, collectorLoc, userLoc, notes
 ```
 
-#### Success Response
+- Success Response
 ```
 code : 200
 {
@@ -24,71 +24,71 @@ code : 200
 }
 ```
 ## Get All Orders
-#### URL
+- URL
 ```
 /orders
 ```
 
-#### Method
+- Method
 ```
 GET
 ```
 
-### Data Params
+- Data Params
 ```
 username, email, wasteType, quantity, price, collectorLoc, userLoc, notes, imgUrl, date, status
 ```
 
 ## Get Orders by Id
-#### URL
+- URL
 ```
 /orders/{id}
 ```
 
-#### Method
+- Method
 ```
 GET
 ```
 
-#### Data Params
+- Data Params
 ```
 username, email, wasteType, quantity, price, collectorLoc, userLoc, notes, imgUrl, date, status
 ```
 
 ## Get Orders by Email
-#### URL
+- URL
 ```
 /orders/{email}
 ```
 
-#### Method
+- Method
 ```
 GET
 ```
 
-#### Data Params
+- Data Params
 ```
 username, email, wasteType, quantity, price, collectorLoc, userLoc, notes, imgUrl, date, status
 ```
 
 ## Get Total Price
-#### URL
+- URL
 ```
 /orders/{username}/totalprice
 ```
 
-#### Method
+- Method
 ```
 GET
 ```
 
-#### Data Params
+- Data Params
 ```
 total_price
 ```
 
 ## Update Order Status
-#### URL
+- URL
 ```
 /orders/{id}/completed
 ```
@@ -98,10 +98,7 @@ total_price
 PUT
 ```
 
-#### Data Params
-```
 
-```
 
 #### Success Response
 ```
@@ -119,22 +116,18 @@ PUT
 
 
 ## Delete Order
-#### URL
+- URL
 ```
 /orders/{id}
 ```
 
-#### Method
+- Method
 ```
 DELETE
 ```
 
-#### Data Params
-```
 
-```
-
-#### Success Response
+- Success Response
 ```
 {
     "fieldCount": 0,
