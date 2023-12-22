@@ -55,6 +55,21 @@ GET
 username, email, wasteType, quantity, price, collectorLoc, userLoc, notes, imgUrl, date, status
 ```
 
+## Get Orders by Email
+#### URL
+```
+/orders/{email}
+```
+
+#### Method
+```
+GET
+```
+
+#### Data Params
+```
+username, email, wasteType, quantity, price, collectorLoc, userLoc, notes, imgUrl, date, status
+```
 
 ## Get Total Price
 #### URL
@@ -99,5 +114,36 @@ PUT
     "message": "(Rows matched: 1  Changed: 1  Warnings: 1",
     "protocol41": true,
     "changedRows": 1
+}
+```
+
+
+## Delete Order
+#### URL
+```
+/orders/{id}
+```
+
+#### Method
+```
+DELETE
+```
+
+#### Data Params
+```
+
+```
+
+#### Success Response
+```
+{
+    "fieldCount": 0,
+    "affectedRows": 1,
+    "insertId": 0,
+    "serverStatus": 2,
+    "warningCount": 0,
+    "message": "",
+    "protocol41": true,
+    "changedRows": 0
 }
 ```
