@@ -51,11 +51,17 @@ const addingOrder = async (request, h) => {
 
         let price;
         switch (wasteType) {
-            case 'kertas':
-                price = 500 * quantity;
+            case 'kaleng':
+                price = 1800 * quantity;
                 break;
-            case 'logam':
-                price = 1000 * quantity;
+            case 'kardus':
+                price = 1100 * quantity;
+                break;
+            case 'minyak':
+                price = 5000 * quantity;
+                break;
+            case 'organik':
+                price = 1800 * quantity;
                 break;
             default:
                 price = 0;
